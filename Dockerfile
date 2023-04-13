@@ -11,3 +11,9 @@ RUN npm run build
 FROM nginx:alpine
 
 COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Expose the port the app will run on
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]
